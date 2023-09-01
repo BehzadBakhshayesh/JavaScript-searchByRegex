@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <button id="button">search</button>
+    <p id="text">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium
+      illum asperiores, quia tempora perspiciatis ut non, amet placeat aut
+      repudiandae necessitatibus earum cumque at incidunt dolorum facilis
+      eveniet fugit. Vitae!
+    </p>
+    <script>
+      const text = document.getElementById("text").innerHTML;
+      const button = document.getElementById("button");
+
+      button.addEventListener("click", () => {
+        const inputValue = document.getElementById("input").value;
+        // const pattern = new RegExp(inputValue, "ig");
+        const pattern = new RegExp(`\\b${inputValue}\\b`, "ig");
+        const alternative = `<span style="background:red">${inputValue}</span>`;
+        const result = text.replace(pattern, alternative);
+        document.getElementById("text").innerHTML = result;
+      });
+    </script>
+  </body>
+</html>
